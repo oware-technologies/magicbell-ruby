@@ -32,6 +32,10 @@ module MagicBell
       MagicBell::PushSubscription.create(self, push_subscription_attributes, extra_headers)
     end
 
+    def delete_push_subscription(push_subscription_attributes, extra_headers)
+      MagicBell::UserPushSubscription.delete(self, push_subscription_attributes, extra_headers)
+    end
+
     def authentication_headers
       MagicBell.authentication_headers(client_api_key: @api_key, client_api_secret: @api_secret)
     end

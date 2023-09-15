@@ -99,6 +99,17 @@ module MagicBell
       self
     end
 
+    def delete
+      response = @client.delete(
+        url,
+        body: {},
+        headers: extra_headers
+      )
+      parse_response(response)
+
+      self
+    end
+
     private
 
     attr_reader :response, :response_hash

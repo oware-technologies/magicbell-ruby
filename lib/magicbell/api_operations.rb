@@ -26,6 +26,14 @@ module MagicBell
       response
     end
 
+    def delete(url, options = {})
+      options[:headers].merge!(default_headers)
+      response = HTTParty.delete(url, options)
+      raise_http_error_unless_2xx_response(response)
+
+      response
+    end
+
     protected
 
     def default_headers
