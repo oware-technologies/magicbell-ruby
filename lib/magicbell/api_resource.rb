@@ -28,11 +28,12 @@ module MagicBell
       end
     end
 
-    attr_reader :id
+    attr_reader :id, :extra_headers
 
-    def initialize(client, attributes = {})
+    def initialize(client, attributes = {}, extra_headers = {})
       @client = client
       @attributes = attributes
+      @extra_headers = extra_headers
 
       @id = @attributes['id']
       @retrieved = true if @id
@@ -96,12 +97,6 @@ module MagicBell
       parse_response(response)
 
       self
-    end
-
-    protected
-
-    def extra_headers
-      {}
     end
 
     private

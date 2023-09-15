@@ -28,6 +28,10 @@ module MagicBell
       MagicBell::User.new(client, 'external_id' => external_id)
     end
 
+    def create_push_subscription(push_subscription_attributes, extra_headers)
+      MagicBell::PushSubscription.create(self, push_subscription_attributes, extra_headers)
+    end
+
     def authentication_headers
       MagicBell.authentication_headers(client_api_key: @api_key, client_api_secret: @api_secret)
     end
