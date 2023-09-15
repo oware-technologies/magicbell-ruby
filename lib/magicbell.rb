@@ -20,6 +20,7 @@ require 'magicbell/api_resources/user_notification_unread'
 require 'magicbell/api_resources/user_notifications_read'
 require 'magicbell/api_resources/user_notifications_seen'
 require 'magicbell/api_resources/user_notification_preferences'
+require 'magicbell/api_resources/push_subscription'
 
 require 'magicbell/railtie' if defined?(Rails)
 
