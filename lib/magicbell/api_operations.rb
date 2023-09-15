@@ -3,24 +3,24 @@ require 'colorize'
 module MagicBell
   module ApiOperations
     def get(url, options = {})
-      defaults = { headers: default_headers }
-      response = HTTParty.get(url, options.merge(defaults))
+      options[:headers].merge!(default_headers)
+      response = HTTParty.get(url, options)
       raise_http_error_unless_2xx_response(response)
 
       response
     end
 
     def post(url, options = {})
-      defaults = { headers: default_headers }
-      response = HTTParty.post(url, options.merge(defaults))
+      options[:headers].merge!(default_headers)
+      response = HTTParty.post(url, options)
       raise_http_error_unless_2xx_response(response)
 
       response
     end
 
     def put(url, options = {})
-      defaults = { headers: default_headers }
-      response = HTTParty.put(url, options.merge(defaults))
+      options[:headers].merge!(default_headers)
+      response = HTTParty.put(url, options)
       raise_http_error_unless_2xx_response(response)
 
       response
