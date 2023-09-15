@@ -9,6 +9,10 @@ module MagicBell
         new(client, attributes, extra_headers).create
       end
 
+      def delete
+        new(client, attributes, extra_headers).delete
+      end
+
       def find(client, id)
         api_resource = new(client, 'id' => id)
         api_resource.retrieve
