@@ -9,7 +9,7 @@ module MagicBell
         new(client, attributes, extra_headers).create
       end
 
-      def delete
+      def delete(client, attributes = {}, extra_headers = {})
         new(client, attributes, extra_headers).delete
       end
 
