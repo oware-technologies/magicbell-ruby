@@ -5,8 +5,8 @@ require 'json'
 module MagicBell
   class ApiResource
     class << self
-      def create(client, attributes = {})
-        new(client, attributes).create
+      def create(client, attributes = {}, extra_headers = {})
+        new(client, attributes, extra_headers).create
       end
 
       def find(client, id)
