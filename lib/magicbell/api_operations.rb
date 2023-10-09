@@ -3,7 +3,7 @@ require 'colorize'
 module MagicBell
   module ApiOperations
     def get(url, options = {})
-      options[:headers].merge!(default_headers)
+      (options[:headers] || {}).merge!(default_headers)
       response = HTTParty.get(url, options)
       raise_http_error_unless_2xx_response(response)
 
@@ -11,7 +11,7 @@ module MagicBell
     end
 
     def post(url, options = {})
-      options[:headers].merge!(default_headers)
+      (options[:headers] || {}).merge!(default_headers)
       response = HTTParty.post(url, options)
       raise_http_error_unless_2xx_response(response)
 
@@ -19,7 +19,7 @@ module MagicBell
     end
 
     def put(url, options = {})
-      options[:headers].merge!(default_headers)
+      (options[:headers] || {}).merge!(default_headers)
       response = HTTParty.put(url, options)
       raise_http_error_unless_2xx_response(response)
 
@@ -27,7 +27,7 @@ module MagicBell
     end
 
     def delete(url, options = {})
-      options[:headers].merge!(default_headers)
+      (options[:headers] || {}).merge!(default_headers)
       response = HTTParty.delete(url, options)
       raise_http_error_unless_2xx_response(response)
 
