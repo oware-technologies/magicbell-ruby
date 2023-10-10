@@ -13,8 +13,8 @@ module MagicBell
         new(client, attributes, extra_headers).delete
       end
 
-      def find(client, id)
-        api_resource = new(client, 'id' => id)
+      def find(client, id, extra_headers = {})
+        api_resource = new(client, {'id' => id}, extra_headers)
         api_resource.retrieve
         api_resource
       end
@@ -55,7 +55,7 @@ module MagicBell
     end
 
     def retrieve
-      response = @client.get(url)
+      response = @client.get(url, headers: extra_headers)
       parse_response(response)
 
       self
