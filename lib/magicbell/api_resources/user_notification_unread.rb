@@ -2,9 +2,9 @@ module MagicBell
   class UserNotificationUnread < SingletonApiResource
     attr_reader :user_notification
 
-    def initialize(client, attributes)
+    def initialize(client, attribute, extra_headers = {})
       @user_notification = attributes.delete('user_notification')
-      super(client, attributes)
+      super(client, attributes, extra_headers)
     end
 
     def path
