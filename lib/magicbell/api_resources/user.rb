@@ -1,6 +1,9 @@
+CustomApiOperations = MagicBell::ApiOperations.dup
+CustomApiOperations.remove_method(:delete)
+
 module MagicBell
   class User < ApiResource
-    include ApiOperations
+    include CustomApiOperations
 
     attr_reader :email, :external_id
 
@@ -39,11 +42,11 @@ module MagicBell
 
     def path
       if id
-        self.class.path + "/#{id}"
+        "/users/#{id}"
       elsif external_id
-        self.class.path + "/external_id:#{external_id}"
+        "/users/external_id:#{external_id}"
       elsif email
-        self.class.path + "/email:#{email}"
+        "/users/email:#{email}"
       end
     end
 
